@@ -21,5 +21,6 @@ jobs:
     - name: Deploy via SCP
       run: |
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/example.key
-        sudo scp -o StrictHostKeyChecking=no -i /tmp/example.key example.py daehyun2_baek@${{ secrets.GCE_IP }}:/home/daehyun2_baek/
+        sudo scp -o StrictHostKeyChecking=no -i /tmp/example.key example.py daehyun2_baek@${{ secrets.GCE_IP }}:/home/daehyun2_baek/python/selenium/
+        sudo scp -o StrictHostKeyChecking=no -i /tmp/example.key test_benepia2.py daehyun2_baek@${{ secrets.GCE_IP }}:/home/daehyun2_baek/python/selenium/
         rm /tmp/example.key
