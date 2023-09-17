@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-
+# Add by BaekDaehyun
 # Initialize a logger instance
 client = logging.Client()
 logger = client.logger("example_dot_com_logger")
