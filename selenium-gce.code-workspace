@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../selenium-gce"
+		},
+		{
+			"name": "selenium-gce",
+			"path": "../../selenium-gce/selenium-gce"
+		}
+	],
+	"settings": {}
+}

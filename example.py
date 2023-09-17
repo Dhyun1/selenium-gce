@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 # Initialize a logger instance
 client = logging.Client()
-logger = client.logger("example_dot_com_logger")
+logger = client.logger(f"{__name__}")
 
 # Setup WebDriver
 webdriver_service = Service(ChromeDriverManager().install())
