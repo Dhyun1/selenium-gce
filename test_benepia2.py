@@ -16,6 +16,9 @@ class TestBenepia2():
   def setup_method(self, method):
     service = Service()
     options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(service=service, options=options)
     self.vars = {}
   
@@ -45,7 +48,7 @@ class TestBenepia2():
     while self.driver.execute_script("return (arguments[0] != \"button\")", self.vars["typeAttr"]):
       # Province click
       self.driver.find_element(By.XPATH, "//button[contains(.,\'충북\')]").click()
-      time.sleep(0.1)
+      time.sleep(0.5)
       # State click
       self.driver.find_element(By.XPATH, "//button[contains(.,\'제천시\')]").click()
       # Store Attribute of date
@@ -57,7 +60,7 @@ class TestBenepia2():
     # roomAvaliableStatus
     # self.vars["roomAvaliableStatus"] = self.driver.execute_script("return (document.querySelectorAll(\'#condoType-search-result > ul > li:nth-child(1) > button > span.resort-info > span.title\')[0].innerText)")
     # roomAvaliableStatus 확인
-    # print("{}".format(self.vars["roomAvaliableStatus"]))
+    print("{}".format(self.vars["roomAvaliableStatus"]))
     # room click
     time.sleep(0.1)
     self.driver.find_element(By.XPATH, "//div[@id=\'condoType-search-result\']/ul/li[2]/button/span/span").click()
@@ -67,4 +70,4 @@ class TestBenepia2():
     # 약관 checkbox click
     time.sleep(0.1)
     self.driver.find_element(By.CSS_SELECTOR, ".checkbox").click()
-  
+    print("checkbox click end")
