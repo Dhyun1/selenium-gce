@@ -59,9 +59,10 @@ class TestBenepia2():
     # Date click
     self.driver.find_element(By.XPATH, "//button[contains(.,\'27\')]").click()
     # roomAvaliableStatus
-    self.vars["roomAvaliableStatus"] = self.driver.execute_script("return (document.querySelectorAll(\'#condoType-search-result > ul > li:nth-child(1) > button > span.resort-info > span.title\')[0].innerText)")
+    # time.sleep(0.2)
+    # self.vars["roomAvaliableStatus"] = self.driver.execute_script("return (document.querySelectorAll(\'#condoType-search-result > ul > li:nth-child(1) > button > span.resort-info > span.title\')[0].innerText)")
     # roomAvaliableStatus 확인
-    print("{}".format(self.vars["roomAvaliableStatus"]))
+    # print("{}".format(self.vars["roomAvaliableStatus"]))
     # room click
     time.sleep(0.1)
     self.driver.find_element(By.XPATH, "//div[@id=\'condoType-search-result\']/ul/li[2]/button/span/span").click()
