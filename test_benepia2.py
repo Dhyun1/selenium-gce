@@ -47,8 +47,9 @@ class TestBenepia2():
     # 반복문(날짜 선택 가능할때까지)
     while self.driver.execute_script("return (arguments[0] != \"button\")", self.vars["typeAttr"]):
       # Province click
+      time.sleep(0.3)
       self.driver.find_element(By.XPATH, "//button[contains(.,\'충북\')]").click()
-      time.sleep(0.5)
+      time.sleep(0.3)
       # State click
       self.driver.find_element(By.XPATH, "//button[contains(.,\'제천시\')]").click()
       # Store Attribute of date
