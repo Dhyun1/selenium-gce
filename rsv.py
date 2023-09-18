@@ -12,11 +12,30 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
-def get_cli_params(auto_resv_params):
+@pytest.fixture(scope="class")
+def resv_params(request):
     
-    return auto_resv_params
+    request.cls.id = request.config.getoption('--id')
+    request.cls.pw = request.config.getoption('--pw')
+    request.cls.resv_date = request.config.getoption('--resv-date')
+    request.cls.resv_state = request.config.getoption('--resv-state')
+    request.cls.resv_si = request.config.getoption('--resv-si')
+    request.cls.resv_room_type = request.config.getoption('--resv-room-type')
+    # auto_resv_params = {}
+    # auto_resv_params['id'] = request.config.getoption('--id')
+    # auto_resv_params['pw'] = request.config.getoption('--pw')
+    # auto_resv_params['resv_date'] = request.config.getoption('--resv-date')
+    # auto_resv_params['resv_state'] = request.config.getoption('--resv-state')
+    # auto_resv_params['resv_si'] = request.config.getoption('--resv-si')
+    # auto_resv_params['resv_room_type'] = request.config.getoption('--resv-room-type')
+    
+    # if auto_resv_params['id'] is None or auto_resv_params['password'] is None:
+    #     pytest.skip()
+    
+    # return auto_resv_params
 
-class TestBenepia2():
+@pytest.mark.usefixtures("resv_params")
+class BenepiaReservation():
   def setup_method(self, method):
     service = Service()
     options = webdriver.ChromeOptions()
@@ -25,13 +44,13 @@ class TestBenepia2():
     options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(service=service, options=options)
     self.vars = {}
-    self.auto_resv_params = get_cli_params(auto_resv_params)
     
   def teardown_method(self, method):
     self.driver.quit()
 
   def test_benepia2(self):
-    print(self.auto_resv_params)
+    print(":"*100)
+    print(self.id)
     # login url 선언
     self.vars["loginUrl"] = self.driver.execute_script("return (\'https://hywelplus.skhynix.com/login\')")
     # 예약 url 선언
