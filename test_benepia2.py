@@ -78,4 +78,4 @@ class TestBenepia2():
     # 약관 checkbox click
     self.driver.find_element(By.CSS_SELECTOR, ".checkbox").click()
     # 예약신청 click (최종)
-    self.driver.find_element(By.ID, "reservationRequestBtn").click()
+    # self.driver.find_element(By.ID, "reservationRequestBtn").click()
