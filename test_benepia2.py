@@ -12,6 +12,10 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
+def get_cli_params(auto_resv_params):
+    
+    return auto_resv_params
+
 class TestBenepia2():
   def setup_method(self, method):
     service = Service()
@@ -21,14 +25,10 @@ class TestBenepia2():
     options.add_argument('--disable-dev-shm-usage')
     self.driver = webdriver.Chrome(service=service, options=options)
     self.vars = {}
-    self.auto_resv_params = {}
+    self.auto_resv_params = get_cli_params(auto_resv_params)
     
   def teardown_method(self, method):
     self.driver.quit()
-  
-  def test_params(self, auto_resv_params):
-    self.auto_resv_params = auto_resv_params
-    assert self.auto_resv_params['id'] == '2074661'
 
   def test_benepia2(self):
     self.test_params()
