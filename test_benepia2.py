@@ -31,7 +31,6 @@ class TestBenepia2():
     self.driver.quit()
 
   def test_benepia2(self):
-    self.test_params()
     print(self.auto_resv_params)
     # login url 선언
     self.vars["loginUrl"] = self.driver.execute_script("return (\'https://hywelplus.skhynix.com/login\')")
