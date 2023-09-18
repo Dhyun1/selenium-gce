@@ -12,6 +12,26 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
+def pytest_addoption(parser):
+    parser.addoption(
+        '--id', action='store', default='2074661', help='ID'
+    )
+    parser.addoption(
+        '--pw', action='store', default='bdpdnjs05*', help='password'
+    )
+    parser.addoption(
+        '--resv-date', action='store', default='1', help='Reservation Date'
+    )
+    parser.addoption(
+        '--resv-state', action='store', default='충북', help='Reservation State'
+    )
+    parser.addoption(
+        '--resv-si', action='store', default='제천시', help='Reservation Si' 
+    )
+    parser.addoption(
+        '--resv-room-type', action='store', default='2', help='Reservation Room type index shown in website' 
+    )
+
 @pytest.fixture(scope="class")
 def resv_params(request):
     
