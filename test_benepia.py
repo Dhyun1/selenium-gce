@@ -35,7 +35,7 @@ def resv_params(request):
     # return auto_resv_params
 
 @pytest.mark.usefixtures("resv_params")
-class BenepiaReservation():
+class TestBenepia():
   def setup_method(self, method):
     service = Service()
     options = webdriver.ChromeOptions()
@@ -48,7 +48,7 @@ class BenepiaReservation():
   def teardown_method(self, method):
     self.driver.quit()
 
-  def test_benepia2(self):
+  def test_benepia(self):
     print(":"*100)
     print(self.id)
     # login url 선언
